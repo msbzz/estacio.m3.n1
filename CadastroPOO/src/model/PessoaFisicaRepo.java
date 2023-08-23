@@ -69,15 +69,7 @@ public class PessoaFisicaRepo {
         return false;  // Retorna false se a pessoa física não foi encontrada na lista
     }
 
-    // Método para obter uma pessoa física por ID
-    /*
-    public Optional<PessoaFisica> obter(int id) {
-        return listaPessoasFisicas.stream()
-                .filter(pessoaFisica -> pessoaFisica.getId() == id)
-                .findFirst();
-    }
 
-     */
     public PessoaFisica obter(int id) {
         return listaPessoasFisicas.stream()
                 .filter(pessoaFisica -> pessoaFisica.getId() == id)

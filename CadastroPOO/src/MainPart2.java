@@ -25,8 +25,8 @@ public class MainPart2 {
     }
 
     private static void executarAcao() {
-        Acoes acaos = new Acoes(opcaoPessoa,opcaoAcao);
-        acaos.execuntandoAcoes();
+        Acoes acoes = new Acoes(opcaoPessoa,opcaoAcao);
+        acoes.execuntandoAcoes();
     }
 
     private static void menuPessoa() {

@@ -48,6 +48,13 @@ public class Dao {
         }
     }
 
+    public void alterar(Pessoa pessoa){
+        if (opcaoPessoa == "f") {
+            repo1.alterar((PessoaFisica)pessoa );
+        } else {
+            repo2.alterar((PessoaJuridica)pessoa);
+        }
+    }
     private void imprimeTodos(List<? extends Pessoa> lista) {
         for (Pessoa p:lista) {
             System.out.println(p.exibir());

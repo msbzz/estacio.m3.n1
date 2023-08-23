@@ -32,9 +32,11 @@ public class PessoaJuridica extends Pessoa implements Serializable {
 
     @Override
     public String exibir() {
-        return "PessoaJuridica{" +
-                "cnpj='" + cnpj + '\'' +
-                '}';
+        return
+                "id : " + getId() + "\n" +
+                        "empresa : " + getNome()  + "\n" +
+                        "cnpj : '" + getCnpj()  + "\n" ;
+
     }
 
 }
