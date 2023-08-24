@@ -22,15 +22,13 @@ public class Validacoes {
                 if (!opcaoAcao.equals("A")) {
                     System.out.println(msg);
                     clickMe();
-                    return false;
                 }
+                return false;
             }
         } catch (NumberFormatException e) {
             System.out.println("Por favor, insira um número inteiro válido para a idade.");
             return false;
         }
-
-
 
         return true;
     }
@@ -43,11 +41,10 @@ public class Validacoes {
             if (!opcaoAcao.equals("A")){
                 System.out.println(msg);
                 clickMe();
-                return false;
+
             }
-
+            return false;
         }
-
         return true;
     }
 
@@ -73,6 +70,7 @@ public class Validacoes {
 
     //enviar mensagem e aguardar teclar algo
     public void clickMe(){
+        System.out.println("");
         System.out.println("tecle qualquer tecla para continuar.. ");
         try{
             System.in.read();

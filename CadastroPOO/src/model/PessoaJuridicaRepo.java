@@ -64,6 +64,10 @@ public class PessoaJuridicaRepo {
         return listaPessoasJuridicas;
     }
     public void persistir(String nomeArquivo) {
+        if(listaPessoasJuridicas.isEmpty()){
+            System.out.println("Não existem registros a serem persistidos");
+            return;
+        }
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
             out.writeObject(listaPessoasJuridicas);
         } catch (IOException e) {

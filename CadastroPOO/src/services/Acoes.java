@@ -47,13 +47,12 @@ public class Acoes {
                 inserirDados();
                 break;
             case "A":
+                System.out.println("");
                 obterId();
                 alterarDados();
-
                 break;
             case "R":
-                obterId();
-                //excluirPessoa();
+                excluir();
                 System.out.println("excluindo dados " + tpPessoa);
                 break;
             case "B":
@@ -64,7 +63,7 @@ public class Acoes {
             case "S":
                 //exibirTodos
                 System.out.println("exibir todos dados " + tpPessoa);
-                dao.obterTodos();
+                todos();
                 break;
             case "P":
                 //persistirDados
@@ -88,8 +87,33 @@ public class Acoes {
         }
     }
 
+    private void excluir() {
+        obterId();
+        obtemDadosById(idBusca);
+
+        boolean inloop=true;
+
+        while(inloop){
+            System.out.println("Confirma a exclusão do item apresentdo(S/N) ?");
+            String resp = scanner.nextLine();
+
+            if(resp.equals("N")||resp.equals("n")){
+                return;
+            }else if(resp.equals("s")||resp.equals("S")){
+                inloop=false;
+            }
+        }
+        dao.exluir(idBusca);
+     }
+
+    private void todos() {
+        dao.obterTodos();
+        vld.clickMe();
+    }
+
     private void recuperarDados() {
-            dao.recuperar(prefixo);
+        dao.recuperar(prefixo);
+        vld.clickMe();
     }
 
     private void persistirDados() {
@@ -106,17 +130,116 @@ public class Acoes {
     }
 
     private void preencheDadosPessoa() {
-        /*
+        String nome = "";
+        String cpf = "";
+        String cnpj = "";
+        Integer idade = 0;
+
+        // nome
         if (opcaoAcao.equals("A")) {
-            if (opcaoPessoa.equals("f")) {
-                pessoaFisica.exibir();
-            } else {
-                pessoaJuridica.exibir();
-            }
+            scanner.nextLine();
         }
 
-         */
+        nome = inputDadosText("Digite o nome","nome precisa ser preenchido","nome");
 
+        if (opcaoPessoa.equals("f")) {
+            // idade
+            idade= inputDadosNum("Digite o idade","insira a idade entre 18 e 99 anos","idade");
+            // cpf
+            cpf =inputDadosText("Digite o cpf","o cpf precisa ser definido","cpf");
+
+            vld.clickMe();
+
+            concluiEntradaDeDadosPessoa(cpf,nome,idade);
+
+
+        } else {
+            // cnpj
+            cnpj=inputDadosText("Digite o cnpj","o cnpj precisa ser definido","cnpj");
+
+            vld.clickMe();
+
+            concluiEntradaDeDadosPessoa(cnpj,nome);
+
+        }
+
+    }
+
+    private void concluiEntradaDeDadosPessoa(String cnpj, String nome) {
+        if (opcaoAcao.equals("A")) {
+            pessoaJuridica.setCnpj(cnpj);
+            pessoaJuridica.setNome(nome);
+        }else {
+            atualizarInstancia(new PessoaJuridica(nome, cnpj));
+        }
+    }
+
+    private void concluiEntradaDeDadosPessoa(String cpf, String nome, Integer idade) {
+
+        if (opcaoAcao.equals("A")) {
+            pessoaFisica.setCpf(cpf);
+            pessoaFisica.setNome(nome);
+            pessoaFisica.setIdade(idade);
+        }else{
+            atualizarInstancia(new PessoaFisica(nome, idade, cpf));
+        }
+    }
+
+    private String inputDadosText(String msgTitulo,String msgErr,String tp) {
+        boolean inloop = true;
+        String sReturn="";
+        while (inloop) {
+            System.out.println(msgTitulo);
+            sReturn = scanner.nextLine();
+            if (!vld.campoValido(sReturn, msgTitulo)) {
+                if (opcaoAcao.equals("A")) {
+                    switch (tp) {
+                        case "nome":
+                            sReturn = (opcaoPessoa.equals("f")) ? pessoaFisica.getNome() : pessoaJuridica.getNome();
+                            break;
+                        case "cpf":
+                            sReturn =pessoaFisica.getCpf();
+                            break;
+                        case "cnpj":
+                            sReturn =pessoaJuridica.getCnpj();
+                            break;
+
+
+                    }
+
+                    inloop = false;
+                }
+            } else {
+                inloop = false;
+            }
+        }
+        return sReturn;
+    }
+
+    private Integer inputDadosNum(String msgTitulo,String msgErr,String tp) {
+        boolean inloop = true;
+        Integer sReturn=0;
+        while (inloop) {
+            System.out.println(msgTitulo);
+            String entrada = scanner.nextLine();
+            if (!vld.campoValido(entrada, msgTitulo)) {
+                if (opcaoAcao.equals("A")) {
+                    switch (tp) {
+                        case "idade":
+                            sReturn = pessoaFisica.getIdade();
+                    }
+
+                    inloop = false;
+                }
+            } else {
+                sReturn =Integer.parseInt(entrada);
+                inloop = false;
+            }
+        }
+        return sReturn;
+    }
+
+    private void preencheDadosPessoaBKP() {
         String nome = "";
         String cpf = "";
         String cnpj = "";
@@ -140,7 +263,6 @@ public class Acoes {
             }
         }
 
-        System.out.println("preencher nome "+nome);
         inloop = true;
 
         if (opcaoPessoa.equals("f")) {
@@ -160,7 +282,6 @@ public class Acoes {
                     inloop = false;
                 }
 
-                System.out.println("preencher idade "+idade);
 
             }
 
@@ -180,8 +301,8 @@ public class Acoes {
                 }
             }
 
-            System.out.println("preencher cpf "+cpf);
             vld.clickMe();
+
             if (opcaoAcao.equals("A")) {
                 pessoaFisica.setCpf(cpf);
                 pessoaFisica.setNome(nome);
@@ -207,6 +328,9 @@ public class Acoes {
                     inloop = false;
                 }
             }
+
+            vld.clickMe();
+
             if (opcaoAcao.equals("A")) {
                 pessoaJuridica.setCnpj(cnpj);
                 pessoaJuridica.setNome(nome);
@@ -244,6 +368,10 @@ public class Acoes {
     private void alterarDados() {
 
         if (obtemDadosById(idBusca)) {
+            System.out.println("=============================================================================");
+            System.out.println("Caso deseja manter o valor original, tecle [enter] para seguir o proximo item");
+            System.out.println("=============================================================================");
+            vld.clickMe();
             preencheDadosPessoa();
             alterarDadosPessoa();
         }
