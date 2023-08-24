@@ -65,7 +65,7 @@ public class MainPart2 {
             System.out.println("7 - Recuperar Dados");
             System.out.println("0 - Finalizar Programa");
             System.out.println("==========================================");
-            System.out.print("opção ");
+            System.out.print("opção : ");
             int escolha = -1;
             try {
                 escolha = scanner.nextInt();

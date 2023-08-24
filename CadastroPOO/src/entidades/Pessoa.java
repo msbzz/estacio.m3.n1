@@ -1,5 +1,7 @@
 package entidades;
 
+import utils.IDControle;
+
 import java.io.Serializable;
 
 public abstract class Pessoa implements Serializable {
@@ -13,8 +15,8 @@ public abstract class Pessoa implements Serializable {
     }
 
     public Pessoa( String nome) {
-        this.id += 1;
-
+        //this.id += 1;
+        this.id= IDControle.getID();
         this.individualId=id;
 
         this.nome = nome;

@@ -2,23 +2,28 @@ package entidades;
 
 import java.io.Serializable;
 
+import utils.IDControle;
+
 public class PessoaJuridica extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
-        private String cnpj;
+
+    private String cnpj;
+
     public PessoaJuridica() {
 
     }
+
     public PessoaJuridica(String cnpj) {
         this.cnpj = cnpj;
     }
 
-    public PessoaJuridica(String nome,String cnpj) {
+    public PessoaJuridica(String nome, String cnpj) {
         super(nome);
         this.cnpj = cnpj;
     }
 
     public PessoaJuridica(Integer id, String nome, String cnpj) {
-        super( nome);
+        super(nome);
         this.cnpj = cnpj;
     }
 
@@ -34,8 +39,8 @@ public class PessoaJuridica extends Pessoa implements Serializable {
     public String exibir() {
         return
                 "id : " + getId() + "\n" +
-                        "empresa : " + getNome()  + "\n" +
-                        "cnpj : '" + getCnpj()  + "\n" ;
+                        "empresa : " + getNome() + "\n" +
+                        "cnpj : '" + getCnpj() + "\n";
 
     }
 

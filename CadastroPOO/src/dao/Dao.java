@@ -6,17 +6,20 @@ import entidades.PessoaJuridica;
 import model.PessoaFisicaRepo;
 import model.PessoaJuridicaRepo;
 
-import javax.swing.plaf.PanelUI;
-import java.util.List;
+ import java.util.List;
 
 public class Dao {
 
     private String opcaoPessoa;
-    static PessoaFisicaRepo repo1 = new PessoaFisicaRepo();
-    static PessoaJuridicaRepo repo2 = new PessoaJuridicaRepo();
 
-    public Dao(String opcaoPessoa) {
+    private PessoaFisicaRepo repo1;
+    private PessoaJuridicaRepo repo2;
+
+    public Dao(String opcaoPessoa,PessoaFisicaRepo repo1,PessoaJuridicaRepo repo2) {
+
         this.opcaoPessoa = opcaoPessoa;
+        this.repo1=repo1;
+        this.repo2=repo2;
     }
 
     public void inserirDados(Pessoa pessoa) {
@@ -24,6 +27,7 @@ public class Dao {
             repo1.inserir((PessoaFisica) pessoa);
 
         } else {
+            System.out.println("antes de inserir=>>>"+pessoa.exibir());
             repo2.inserir((PessoaJuridica) pessoa);
         }
     }
@@ -61,4 +65,19 @@ public class Dao {
         }
     }
 
+    public void recuperar(String prefixo) {
+        if(opcaoPessoa.equals("f")){
+            repo1.recuperar(prefixo+".fisica.bin");
+        } else{
+            repo2.recuperar(prefixo+".juridica.bin");
+        }
+    }
+
+    public void persistir(String prefixo) {
+        if(opcaoPessoa.equals("f")){
+            repo1.persistir(prefixo+".fisica.bin");
+        } else{
+            repo2.persistir(prefixo+".juridica.bin");
+        }
+    }
 }

@@ -4,21 +4,22 @@ import java.io.Serializable;
 
 public class PessoaFisica extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Integer idade;
+
+     private Integer idade;
     private String cpf;
     public PessoaFisica() {
-
-    }
-
+     }
     public PessoaFisica(Integer idade, String cpf) {
         this.idade = idade;
         this.cpf = cpf;
+
     }
 
     public PessoaFisica( String nome, Integer idade, String cpf) {
         super(  nome);
         this.idade = idade;
         this.cpf = cpf;
+
     }
 
 

@@ -13,13 +13,12 @@ public class PessoaJuridicaRepo {
     // Construtor
     public PessoaJuridicaRepo() {
 
-        this.listaPessoasJuridicas = new ArrayList<>();
+        this.listaPessoasJuridicas = new ArrayList<PessoaJuridica>();
     }
 
     // Método para inserir uma pessoa física
     public void inserir(PessoaJuridica pessoaJuridica) {
-
-        listaPessoasJuridicas.add(pessoaJuridica);
+         listaPessoasJuridicas.add(pessoaJuridica);
     }
 
     // Método para alterar uma pessoa física
@@ -32,7 +31,7 @@ public class PessoaJuridicaRepo {
             }
         }
 
-        return false;  // Retorna false se a pessoa física não foi encontrada na lista
+        return false;  // Retorna false se a pessoa não foi encontrada na lista
     }
 
 

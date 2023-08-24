@@ -1,30 +1,51 @@
 package utils;
 
 import entidades.Pessoa;
-import entidades.PessoaFisica;
+
+
+import java.io.IOException;
 
 public class Validacoes {
-
+    private String opcaoAcao;
     private String opcaoPessoa;
-    public Validacoes(String opcaoPessoa) {
+    public Validacoes(String opcaoPessoa,String opcaoAcao) {
+
         this.opcaoPessoa=opcaoPessoa;
+        this.opcaoAcao=opcaoAcao;
     }
 
-    public  boolean campoValido(Integer valor, String msg) {
-
-        if ((valor < 18) || (valor > 100)) {
-            System.out.println(msg);
+    // validação idade
+    public  boolean campoIdadeValida(String valor, String msg) {
+        try {
+            Integer idade = Integer.parseInt(valor);
+            if ((idade < 18) || (idade > 99)) {
+                if (!opcaoAcao.equals("A")) {
+                    System.out.println(msg);
+                    clickMe();
+                    return false;
+                }
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Por favor, insira um número inteiro válido para a idade.");
             return false;
         }
+
+
 
         return true;
     }
 
+    // validação nome
     public  boolean campoValido(String valor, String msg) {
 
         if (valor.isEmpty()) {
-            System.out.println(msg);
-            return false;
+
+            if (!opcaoAcao.equals("A")){
+                System.out.println(msg);
+                clickMe();
+                return false;
+            }
+
         }
 
         return true;
@@ -44,9 +65,21 @@ public class Validacoes {
         } else {
             System.out.println("=====================================");
             System.out.println(pessoa.exibir());
-            System.out.println("tecle qualquer tecla para continuar.. ");
+            clickMe();
             return true;
         }
 
     }
+
+    //enviar mensagem e aguardar teclar algo
+    public void clickMe(){
+        System.out.println("tecle qualquer tecla para continuar.. ");
+        try{
+            System.in.read();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }
