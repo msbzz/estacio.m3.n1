@@ -9,7 +9,7 @@ public class MainPart1 {
         PessoaFisicaRepo repo2= new PessoaFisicaRepo();
         PessoaJuridicaRepo repo3= new PessoaJuridicaRepo();
         PessoaJuridicaRepo repo4= new PessoaJuridicaRepo();
-        /*
+
         repo1.inserir(new PessoaFisica("Matheus",25,"1222611")) ;
         repo1.inserir(new PessoaFisica("Marcia",22,"1223211")) ;
         repo1.inserir(new PessoaFisica("Carlos",19,"122222")) ;
@@ -23,14 +23,14 @@ public class MainPart1 {
         System.out.println("Dados Pessoa Fisica Aramzenados");
         repo1.persistir("listaPessoafisica");
 
-         */
+
         System.out.println("Dados Pessoa Fisica Recuperados");
         repo2.recuperar("listaPessoafisica");
 
-        /*
+
         System.out.println("Dados Pessoa Juridicas Aramzenados");
         repo3.persistir("listaPessoaJuridica");
-         */
+
         System.out.println("Dados Pessoa Juridica Recuperados");
         repo4.recuperar("listaPessoaJuridica");
         System.out.println("");

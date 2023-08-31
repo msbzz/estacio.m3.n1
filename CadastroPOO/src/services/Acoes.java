@@ -40,7 +40,7 @@ public class Acoes {
 
 
     public void execuntandoAcoes() {
-        String tpPessoa = (opcaoPessoa == "f") ? "pessoa fisica" : "pessoa juridica";
+        String tpPessoa = (opcaoPessoa == "f") ? "Pessoa fisica" : "Pessoa juridica";
         switch (opcaoAcao) {
             case "I":
                 preencheDadosPessoa();
@@ -68,11 +68,13 @@ public class Acoes {
             case "P":
                 //persistirDados
                 System.out.println("persisitir dados " + tpPessoa);
+                System.out.println("");
                 persistirDados();
                 break;
             case "G":
                 //recuperarDados(Get)
                 System.out.println("recuperar dados " + tpPessoa);
+                System.out.println("");
                 recuperarDados();
                 break;
             case "E":
@@ -112,11 +114,13 @@ public class Acoes {
     }
 
     private void recuperarDados() {
+        prefixo = inputDadosText("Digite o prefixo do arquivo","o prefixo precisa ser preenchido","nome");
         dao.recuperar(prefixo);
         vld.clickMe();
     }
 
     private void persistirDados() {
+          prefixo = inputDadosText("Digite o prefixo do arquivo","o prefixo precisa ser preenchido","nome");
           dao.persistir(prefixo);
 
     }
@@ -239,109 +243,7 @@ public class Acoes {
         return sReturn;
     }
 
-    private void preencheDadosPessoaBKP() {
-        String nome = "";
-        String cpf = "";
-        String cnpj = "";
-        Integer idade = 0;
-
-        boolean inloop = true;
-        // nome
-        if (opcaoAcao.equals("A")) {
-            scanner.nextLine();
-        }
-        while (inloop) {
-            System.out.println("Digite o nome");
-            nome = scanner.nextLine();
-            if (!vld.campoValido(nome, "nome precisa ser preenchido")) {
-                if (opcaoAcao.equals("A")) {
-                    nome = (opcaoPessoa.equals("f")) ? pessoaFisica.getNome() : pessoaJuridica.getNome();
-                    inloop = false;
-                }
-            } else {
-                inloop = false;
-            }
-        }
-
-        inloop = true;
-
-        if (opcaoPessoa.equals("f")) {
-            // idade
-            while (inloop) {
-                System.out.println("Digite o idade");
-                //idade = scanner.nextInt();
-                String entrada = scanner.nextLine();
-
-                if (!vld.campoIdadeValida(entrada, "insira a idade entre 18 e 99 anos")) {
-                    if (opcaoAcao.equals("A")) {
-                        idade = pessoaFisica.getIdade();
-                        inloop = false;
-                    }
-                } else {
-                    idade = Integer.parseInt(entrada);
-                    inloop = false;
-                }
-
-
-            }
-
-            inloop = true;
-
-            // cpf
-            while (inloop) {
-                System.out.println("Digite o cpf");
-                cpf = scanner.nextLine();
-                if (!vld.campoValido(cpf, "o cpf precisa ser definido")) {
-                    if (opcaoAcao.equals("A")) {
-                        cpf = pessoaFisica.getCpf();
-                        inloop = false;
-                    }
-                } else {
-                    inloop = false;
-                }
-            }
-
-            vld.clickMe();
-
-            if (opcaoAcao.equals("A")) {
-                pessoaFisica.setCpf(cpf);
-                pessoaFisica.setNome(nome);
-                pessoaFisica.setIdade(idade);
-            }else{
-                atualizarInstancia(new PessoaFisica(nome, idade, cpf));
-            }
-
-        } else {
-
-            inloop = true;
-
-            // cnpj
-            while (inloop) {
-                System.out.println("Digite o cnpj");
-                cnpj = scanner.nextLine();
-                if (!vld.campoValido(cnpj, "o cnpj precisa ser definido")) {
-                    if (opcaoAcao.equals("A")) {
-                        cnpj = pessoaJuridica.getCnpj();
-                        inloop = false;
-                    }
-                } else {
-                    inloop = false;
-                }
-            }
-
-            vld.clickMe();
-
-            if (opcaoAcao.equals("A")) {
-                pessoaJuridica.setCnpj(cnpj);
-                pessoaJuridica.setNome(nome);
-            }else {
-                atualizarInstancia(new PessoaJuridica(nome, cnpj));
-            }
-        }
-
-    }
-
-    private void atualizarInstancia(Pessoa cls) {
+     private void atualizarInstancia(Pessoa cls) {
         if (opcaoPessoa == "f") {
             pessoaFisica = (PessoaFisica) cls;
 
