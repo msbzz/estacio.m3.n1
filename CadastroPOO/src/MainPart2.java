@@ -1,8 +1,3 @@
-import entidades.Pessoa;
-import entidades.PessoaFisica;
-import entidades.PessoaJuridica;
-import model.PessoaFisicaRepo;
-import model.PessoaJuridicaRepo;
 import services.Acoes;
 
 import java.util.Scanner;
@@ -26,7 +21,7 @@ public class MainPart2 {
 
     private static void executarAcao() {
         Acoes acoes = new Acoes(opcaoPessoa,opcaoAcao);
-        acoes.execuntandoAcoes();
+        acoes.executandoAcoes();
     }
 
     private static void menuPessoa() {

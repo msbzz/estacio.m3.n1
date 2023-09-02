@@ -4,14 +4,17 @@ import entidades.Pessoa;
 
 
 import java.io.IOException;
+import java.util.Scanner;
 
-public class Validacoes {
+public class Util {
     private String opcaoAcao;
     private String opcaoPessoa;
-    public Validacoes(String opcaoPessoa,String opcaoAcao) {
+    private Scanner scanner = new Scanner(System.in);
+    public Util(String opcaoPessoa, String opcaoAcao) {
 
         this.opcaoPessoa=opcaoPessoa;
         this.opcaoAcao=opcaoAcao;
+
     }
 
     // validação idade
@@ -48,7 +51,7 @@ public class Validacoes {
         return true;
     }
 
-    public boolean validarDadosPessoa(Pessoa pessoa) {
+    public boolean verificarInstancia(Pessoa pessoa) {
 
         String msg;
         if(opcaoPessoa.equals("f")){
@@ -79,5 +82,44 @@ public class Validacoes {
         }
 
     }
+
+    public String inputDadosText(String msgTitulo,String msgErr,String valorOriginal) {
+        boolean inloop = true;
+        String sReturn="";
+        while (inloop) {
+            System.out.println(msgTitulo);
+            sReturn = scanner.nextLine();
+            if (!campoValido(sReturn, msgTitulo)) {
+                if (opcaoAcao.equals("A")) {
+                    sReturn =valorOriginal;
+                     inloop = false;
+                }
+            } else {
+                inloop = false;
+            }
+        }
+        return sReturn;
+    }
+
+    public Integer inputDadosNum(String msgTitulo,String msgErr,Integer valorOriginal) {
+        boolean inloop = true;
+        Integer sReturn=0;
+        while (inloop) {
+            System.out.println(msgTitulo);
+            String entrada = scanner.nextLine();
+            if (!campoValido(entrada, msgTitulo)) {
+                if (opcaoAcao.equals("A")) {
+                    sReturn =valorOriginal;
+                    inloop = false;
+                }
+            } else {
+                sReturn =Integer.parseInt(entrada);
+                inloop = false;
+            }
+        }
+        return sReturn;
+    }
+
+
 
 }

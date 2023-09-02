@@ -10,16 +10,14 @@ import java.util.List;
 
 public class Dao {
 
+    private static PessoaFisicaRepo repo1 = new PessoaFisicaRepo();
+    private static PessoaJuridicaRepo repo2 = new PessoaJuridicaRepo();
     private String opcaoPessoa;
 
-    private PessoaFisicaRepo repo1;
-    private PessoaJuridicaRepo repo2;
-
-    public Dao(String opcaoPessoa, PessoaFisicaRepo repo1, PessoaJuridicaRepo repo2) {
+    public Dao(String opcaoPessoa) {
 
         this.opcaoPessoa = opcaoPessoa;
-        this.repo1 = repo1;
-        this.repo2 = repo2;
+
     }
 
     public void inserirDados(Pessoa pessoa) {

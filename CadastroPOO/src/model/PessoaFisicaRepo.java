@@ -34,30 +34,10 @@ public class PessoaFisicaRepo {
         return false;  // Retorna false se a pessoa física não foi encontrada na lista
     }
 
-    public boolean alterar_2 (PessoaFisica pessoaFisica){
-        ListIterator<PessoaFisica> iterator = listaPessoasFisicas.listIterator();
 
-        while (iterator.hasNext()) {
-            PessoaFisica p = iterator.next();
-            if (p.getId() == pessoaFisica.getId()) {
-                iterator.set(pessoaFisica);  // Atualiza o objeto na lista
-                return true;
-            }
-        }
-        return false;  // Retorna false se a pessoa física não foi encontrada na lista
-    }
 
     // Método para excluir uma pessoa física por ID
-    public boolean excluir_1(int id) {
-        Iterator<PessoaFisica> iterator = listaPessoasFisicas.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().getId() == id) {
-                iterator.remove();
-                return true;  // Retorna true indicando sucesso na remoção
-            }
-        }
-        return false;  // Retorna false se a pessoa física não foi encontrada na lista
-    }
+
 
     public boolean excluir(int id) {
         for (PessoaFisica p:listaPessoasFisicas) {
@@ -78,9 +58,6 @@ public class PessoaFisicaRepo {
     }
 
     // Método para obter todas as pessoas físicas
-    public ArrayList<PessoaFisica> obterTodos_1() {
-        return new ArrayList<>(listaPessoasFisicas);
-    }
 
     public List<PessoaFisica> obterTodos() {
         return listaPessoasFisicas ;
