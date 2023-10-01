@@ -2,16 +2,29 @@
 
 ## Descrição
 
-Implementação de um cadastro de clientes em modo texto, com persistência em arquivos, baseado na tecnologia Java.
+Implementação de um app Java Application para cadastro de clientes em modo texto, com persistência em arquivos, baseado na tecnologia Java.
 
-#Objetivos da prática
+### Objetivos da prática
 
-  1- Utilizar herança e polimorfismo na  definição de entidades.
-  2- Utilizar persistência de objetos em arquivos binários.
-  3- Implementar uma interface cadastral em modo texto.
-  4- Utilizar o controle de exceções da plataforma Java.
-  5- No final do projeto, o aluno terá implementado um sistema cadastral em Java, utilizando os recursos da 
+  - Utilizar herança e polimorfismo na  definição de entidades.
+  - Utilizar persistência de objetos em arquivos binários.
+  - Implementar uma interface cadastral em modo texto.
+  - Utilizar o controle de exceções da plataforma Java.
+  - No final do projeto, o aluno terá implementado um sistema cadastral em Java, utilizando os recursos da 
     programação orientada a objetos e a persistência em arquivos binários.
+
+### Procedimentos
+
+- Os procedimentos são divididos em duas etapas
+
+  - 1º Procedimento | Criação das Entidades e Sistema de Persistência
+    -   Definição das entidades
+    -   Definição dos gerenciadores
+    -   Definiçao do resultado desejado 
+   
+    
+   
+    
 
 
 
