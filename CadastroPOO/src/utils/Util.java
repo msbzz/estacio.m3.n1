@@ -114,13 +114,16 @@ public class Util {
                     inloop = false;
                 }
             } else {
-                sReturn =Integer.parseInt(entrada);
-                inloop = false;
+                try {
+                    sReturn =Integer.parseInt(entrada);
+                    inloop = false;
+                }catch (Exception e){
+                    System.out.println("valor invalido, tente novamente");
+                }
+
             }
         }
         return sReturn;
     }
-
-
 
 }
