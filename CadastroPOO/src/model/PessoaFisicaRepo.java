@@ -81,13 +81,17 @@ public class PessoaFisicaRepo {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
             listaPessoasFisicas = (ArrayList<PessoaFisica>) in.readObject();
 
-            for (PessoaFisica pf: listaPessoasFisicas) {
-               System.out.println(pf.exibir());
-            }
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void ListarTodas(){
+        for (PessoaFisica pf: listaPessoasFisicas) {
+            System.out.println(pf.exibir());
+        }
+
     }
 
 

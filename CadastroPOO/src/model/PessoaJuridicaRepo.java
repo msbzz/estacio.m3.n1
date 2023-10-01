@@ -34,9 +34,7 @@ public class PessoaJuridicaRepo {
         return false;  // Retorna false se a pessoa não foi encontrada na lista
     }
 
-
     // Método para excluir uma pessoa física por ID
-
     public boolean excluir(int id) {
         for (PessoaJuridica p: listaPessoasJuridicas) {
             if(p.getId()==id){
@@ -46,7 +44,6 @@ public class PessoaJuridicaRepo {
         }
         return false;  // Retorna false se a pessoa física não foi encontrada na lista
     }
-
 
     public PessoaJuridica obter(int id) {
         return listaPessoasJuridicas.stream()
@@ -80,15 +77,15 @@ public class PessoaJuridicaRepo {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
             listaPessoasJuridicas = (ArrayList<PessoaJuridica>) in.readObject();
 
-            for (PessoaJuridica pf: listaPessoasJuridicas) {
-                System.out.println(pf.exibir());
-            }
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-
-
+    public void ListarTodas(){
+        for (PessoaJuridica pf: listaPessoasJuridicas) {
+            System.out.println(pf.exibir());
+        }
+    }
 }

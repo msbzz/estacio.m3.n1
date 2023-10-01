@@ -16,7 +16,6 @@ public class MainPart2 {
             executarAcao();
         }
 
-
     }
 
     private static void executarAcao() {
@@ -110,7 +109,6 @@ public class MainPart2 {
                     System.out.println("Escolha inválida. Tente novamente.");
 
             }
-
 
         }
     }

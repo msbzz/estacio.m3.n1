@@ -12,7 +12,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
     public PessoaFisica(Integer idade, String cpf) {
         this.idade = idade;
         this.cpf = cpf;
-
     }
 
     public PessoaFisica( String nome, Integer idade, String cpf) {
@@ -21,9 +20,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
         this.cpf = cpf;
 
     }
-
-
-
     public Integer getIdade() {
         return idade;
     }
@@ -35,7 +31,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
     public String getCpf() {
         return cpf;
     }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -47,7 +42,6 @@ public class PessoaFisica extends Pessoa implements Serializable {
                 "nome : " + getNome()  + "\n" +
                 "idade : " + idade  + "\n" +
                 "cpf : '" + cpf  + "\n" ;
-
     }
 
 }

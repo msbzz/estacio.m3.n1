@@ -71,13 +71,14 @@ public class Util {
 
     }
 
-    //enviar mensagem e aguardar teclar algo
+    // mensagem de espera para apresentação de dados
     public void clickMe(){
+
         System.out.println("");
         System.out.println("tecle qualquer tecla para continuar.. ");
         try{
             System.in.read();
-        }catch (IOException e){
+              }catch (Exception e){
             e.printStackTrace();
         }
 

@@ -41,12 +41,6 @@ public abstract class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-
     public abstract String exibir();
-
-
-
-
-
 
 }
