@@ -12,6 +12,7 @@ Implementação de um app Java Application para cadastro de clientes em modo tex
   - Utilizar o controle de exceções da plataforma Java.
   - No final do projeto, o aluno terá implementado um sistema cadastral em Java, utilizando os recursos da 
     programação orientada a objetos e a persistência em arquivos binários.
+    
 
 ### Procedimentos
 
@@ -23,7 +24,12 @@ Implementação de um app Java Application para cadastro de clientes em modo tex
     -   Utilizar as classes Repo na execução de um CRUD
     -   Gerar Relatório discente de acompanhamento (RDA Part1.pdf)
     -   Executar MainPart1.java
-      
+
+  - Execução do código
+    - Executar o arquivo MainPart1.java para obter os resultados de execução dos codigos definidos em RDA Part1.pdf
+    - 
+    ![image](https://github.com/msbzz/estacio.m3.n1/assets/44148209/822d3185-8724-4be6-b31f-0e8157b60619)
+
    
  -  2º Procedimento | Criação do Cadastro em Modo Texto    
     -   Definição do menu e arquivos binarios
@@ -38,6 +44,13 @@ Implementação de um app Java Application para cadastro de clientes em modo tex
 
     ![image](https://github.com/msbzz/estacio.m3.n1/assets/44148209/b92fcc1f-eff3-4eeb-b084-14961d892f1d)
 
+  - Execução do código
+    - Executar o arquivo MainPart2.java para obter os resultados de execução dos codigos definidos em RDA Part2.pdf
+
+   ![image](https://github.com/msbzz/estacio.m3.n1/assets/44148209/e7a0a03d-d1f5-40af-96e9-7d7b09d013b0)
+
+    
+ 
      ## Especificação
      https://sway.office.com/s/rCYHGUtt44OGcxgB/embed
     
